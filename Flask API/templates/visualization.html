@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Visualization's Page</title>
+</head>
+<body>
+    <h1>Visualization's Page</h1>
+    <ul id="navigation">
+    {% for item in navigation %}
+        <li><a href="{{ item.href }}">{{ item.caption }}</a></li>
+    {% endfor %}
+    </ul>
+    <br>
+    <h3>Covid cases sum each week</h3>
+    <img src = "{{url_for('static', filename = '2023-08-27 5 57pm.png')}}"/>
+    <form action = "http://localhost:5000/visualization" method = "post">
+        <input type = "text" name = "comment" placeholder = "comment"/>
+        <input type = "submit" value = "submit"/>
+    </form>
+    <h4>Comments:</h4>
+    <ul>
+        {% for item in dbase %}
+            <li> {{ item.comment}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
